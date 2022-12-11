@@ -30,10 +30,9 @@ scatterPlot +
   geom_smooth(method = lm) +
   labs(x = "Total Time for Condition A(mirrored)", y = "Total Time for condition B(imitated)")
 
-#boxplot(DataSheet$`TotalTime(A)`, DataSheet$`TotalTime(B)`)
-#bPlot <- ggplot(DataSheet, aes(DataSheet$`TotalTime(A)`, DataSheet$`TotalTime(B)`)) +
- # geom_boxplot()
-#bPlot
+boxplot(DataSheet$`TotalTime(A)`, DataSheet$`TotalTime(B)`)
+bPlot <- ggplot(DataSheet, aes(DataSheet$`TotalTime(A)`, DataSheet$`TotalTime(B)`)) +
+  geom_boxplot()
 install.packages(moments)
 library(moments)
 
