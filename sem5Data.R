@@ -122,10 +122,11 @@ mean(dataset$NASA_SUBJECTIVE_SUCCES)
 mean(dataset$NASA_SUBJECTIVE_SUCCES_OGF)
 median(dataset$NASA_SUBJECTIVE_SUCCES)
 median(dataset$NASA_SUBJECTIVE_SUCCES_OGF)
+
 # How insecure, discouraged, irritated, stressed, and annoyed were you?
-hGramIDISA <- ggplot(dataset, aes(x=dataset$NASA_IDISA))
+hGramIDISA <- ggplot(dataset, aes(x=dataset$NASA_IDISA_OGF))
 hGramIDISA + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of Our Guardian Feature") +
+  ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of Developed Guardian Feature") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
 
