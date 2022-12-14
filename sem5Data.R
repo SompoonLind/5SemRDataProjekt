@@ -172,7 +172,14 @@ wilcox.test(dataset$NASA_SUBJECTIVE_SUCCES, dataset$NASA_SUBJECTIVE_SUCCES_OGF)
 # 118.8, p = 0.8185
 wilcox.test(dataset$NASA_IDISA, dataset$NASA_IDISA_OGF) 
 # w = 55, p = 0.01775
-
+wilcox.test(dataset$VRHOURS, dataset$VRHOURS_OGF)
+# W = 115.5, p-value = 0.9155
+wilcox.test(dataset$FRUSTRATION_SCAPE, dataset$FRUSTRATION_SCAPE_OGF)
+# W = 179.5, p-value = 0.004854
+wilcox.test(dataset$HM_USE, dataset$HM_USE_OGF)
+# W = 46, p-value = 0.004065
+wilcox.test(dataset$ACTIVATION_TIME, dataset$ACTIVATION_TIME_OGF)
+# w = 116.5, p-value = 0.8794
 t.test(dataset$NASA_MD, dataset$NASA_MD_OGF)
 # data:  dataset$NASA_MD and dataset$NASA_MD_OGF
 # t = -3.4172, df = 27.02, p-value = 0.002018
