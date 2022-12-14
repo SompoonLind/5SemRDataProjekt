@@ -13,17 +13,12 @@ median(dataset$Age_OGF) # 24
 # NASA RAW of Standard Guardian Feature
 # How mentally demanding was the task?
 # Histogram
-hGramMD <- ggplot(dataset, aes(x=dataset$NASA_MD)) 
-hGramMD + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for 'How mentally demanding was the task?' of the Standard Guardian Feature") +
-  labs(x= "1 - Low, 20 - High") +
-  coord_cartesian(xlim = c(0,20))
-
 hGramMD <- ggplot(dataset, aes(x=dataset$NASA_MD_OGF)) 
 hGramMD + geom_histogram(binwidth = 1, colour = "black", fill="red") +
   ggtitle("Histogram for 'How mentally demanding was the task?' of Our Guardian Feature") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
+
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_MD, dataset$NASA_MD_OGF,
@@ -41,9 +36,9 @@ median(dataset$NASA_MD_OGF)
 
 # How physically demanding was the task?
 # Histogram
-hGramPD <- ggplot(dataset, aes(x=dataset$NASA_PD))
-hGramPD + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for 'How physically demanding was the task?' of the Standard Guardian Feature") +
+hGramPD <- ggplot(dataset, aes(x=dataset$NASA_PD_OGF))
+hGramPD + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How physically demanding was the task?' of Our Guardian Feature") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
 
@@ -63,9 +58,9 @@ median(dataset$NASA_PD)
 median(dataset$NASA_PD_OGF)
 
 # How hurried or rushed was the pace of the task?
-hGramRUSH <- ggplot(dataset, aes(x=dataset$NASA_RUSH))
-hGramRUSH + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for 'How hurried or rushed was the pace of the task?' of the Standard Guardian Test") +
+hGramRUSH <- ggplot(dataset, aes(x=dataset$NASA_RUSH_OGF))
+hGramRUSH + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How hurried or rushed was the pace of the task?' of Our Guardian Test") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
 
@@ -85,9 +80,9 @@ median(dataset$NASA_RUSH)
 median(dataset$NASA_RUSH_OGF)
 # How hard did you have to work to accomplish your level of performance?
 # Histogram
-hGramLOP <- ggplot(dataset, aes(x=dataset$NASA_PERFORMANCEDEMAND))
-hGramLOP + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for 'How hard did you have to work to accomplish your level of performance?' of the Standard Guardian Feature") +
+hGramLOP <- ggplot(dataset, aes(x=dataset$NASA_PERFORMANCEDEMAND_OGF))
+hGramLOP + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How hard did you have to work to accomplish your level of performance?' of Our Guardian Feature") +
   labs(x= "1 - Very Low, 20 - Very High") +
   coord_cartesian(xlim = c(0,20))
 
@@ -108,7 +103,7 @@ median(dataset$NASA_PERFORMANCEDEMAND_OGF)
 
 # How successful were you in accomplishing what you were asked to do?
 hGramLOS <- ggplot(dataset, aes(x=dataset$NASA_SUBJECTIVE_SUCCES_OGF))
-hGramLOS + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+hGramLOS + geom_histogram(binwidth = 1, colour = "black", fill="red") +
   ggtitle("Histogram for 'How successful were you in accomplishing what you were asked to do?' of Our Guardian Feature") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
@@ -129,8 +124,8 @@ median(dataset$NASA_SUBJECTIVE_SUCCES)
 median(dataset$NASA_SUBJECTIVE_SUCCES_OGF)
 # How insecure, discouraged, irritated, stressed, and annoyed were you?
 hGramIDISA <- ggplot(dataset, aes(x=dataset$NASA_IDISA))
-hGramIDISA + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of the Standard Guardian") +
+hGramIDISA + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of Our Guardian Feature") +
   labs(x= "1 - Low, 20 - High") +
   coord_cartesian(xlim = c(0,20))
 
@@ -159,7 +154,6 @@ library(moments)
 # 68          Okay Score
 # 51 – 68     Poor Score
 # <51         Awful Score
-
 
 # Husk at tjekke kurtosis og skewness og den slags
 # Måske er det muligt at få mere normalt fordelt data ved LOG el. squareroot af vores data
@@ -238,3 +232,43 @@ t.test(dataset$NASA_IDISA, dataset$NASA_IDISA_OGF)
 # sample estimates:
 #   mean of x mean of y 
 # 7.2      12.2 
+
+hGramVRHOURS <- ggplot(dataset, aes(x=dataset$VRHOURS))
+hGramVRHOURS + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for how many hours participants have used Virtual Reality before (SGF)") +
+  labs(x= "1 = <1 hour, 2 = 1-5 hours, 3 = 5-20 hours, 20-60 hours,  5 = >60 hours")
+  #coord_cartesian(xlim = c(0,20))
+
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$FRUSTRATION_SCAPE, dataset$FRUSTRATION_SCAPE_OGF,
+        main = "How frustrating did you find the space?",
+        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        horizontal = FALSE,
+        col = "red",
+        notch = FALSE,
+        ylim = c(0, 20),
+        xlab = "0 = Not very frustrating, 20 = Very frustrating"
+)
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$HM_USE, dataset$HM_USE_OGF,
+        main = "How much did you make use of the feature?",
+        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        horizontal = FALSE,
+        col = "red",
+        notch = FALSE,
+        ylim = c(0, 20),
+        xlab = "1 = Very much, 20 = Not very much")
+)
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$ACTIVATION_TIME, dataset$ACTIVATION_TIME_OGF,
+        main = "Did the feature activate in good time?",
+        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        horizontal = FALSE,
+        col = "red",
+        notch = FALSE,
+        ylim = c(0, 20),
+        xlab = "1 = Too early, 20 = Too late")
+)
