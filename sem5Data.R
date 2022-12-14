@@ -13,19 +13,24 @@ median(dataset$Age_OGF) # 24
 # NASA RAW of Standard Guardian Feature
 # How mentally demanding was the task?
 # Histogram
-hGramMD <- ggplot(dataset, aes(x=dataset$NASA_MD_OGF)) 
-hGramMD + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How mentally demanding was the task?' of Our Guardian Feature") +
-  labs(x= "1 - Low, 20 - High") +
+hGramMD <- ggplot(dataset, aes(x=dataset$NASA_MD)) 
+hGramMD + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How mentally demanding was the task?' of the Standard Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
   coord_cartesian(xlim = c(0,20))
-
+hGramMDDGF <- ggplot(dataset, aes(x=dataset$NASA_MD_OGF)) 
+hGramMDDGF + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How mentally demanding was the task?' of the Developed Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
+  coord_cartesian(xlim = c(0,20))
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_MD, dataset$NASA_MD_OGF,
-        main = "How mentally demanding was the task?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        main = "How mentally demanding was the task? ",
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -36,19 +41,25 @@ median(dataset$NASA_MD_OGF)
 
 # How physically demanding was the task?
 # Histogram
-hGramPD <- ggplot(dataset, aes(x=dataset$NASA_PD_OGF))
-hGramPD + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How physically demanding was the task?' of Our Guardian Feature") +
-  labs(x= "1 - Low, 20 - High") +
+hGramPD <- ggplot(dataset, aes(x=dataset$NASA_PD))
+hGramPD + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How physically demanding was the task?' of the Standard Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
   coord_cartesian(xlim = c(0,20))
 
+hGramPDDGF <- ggplot(dataset, aes(x=dataset$NASA_PD_OGF))
+hGramPDDGF + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How physically demanding was the task?' of the Developed Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
+  coord_cartesian(xlim = c(0,20))
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_PD, dataset$NASA_PD_OGF,
         main = "How physically demanding was the task?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -58,19 +69,25 @@ median(dataset$NASA_PD)
 median(dataset$NASA_PD_OGF)
 
 # How hurried or rushed was the pace of the task?
-hGramRUSH <- ggplot(dataset, aes(x=dataset$NASA_RUSH_OGF))
-hGramRUSH + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How hurried or rushed was the pace of the task?' of Our Guardian Test") +
-  labs(x= "1 - Low, 20 - High") +
+hGramRUSH <- ggplot(dataset, aes(x=dataset$NASA_RUSH))
+hGramRUSH + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How hurried or rushed was the pace of the task?' of the Standard Guardian Test") +
+  labs(x= "1 = Low, 20 = High") +
+  coord_cartesian(xlim = c(0,20))
+hGramRUSHDGF <- ggplot(dataset, aes(x=dataset$NASA_RUSH_OGF))
+hGramRUSHDGF + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How hurried or rushed was the pace of the task?' of the Developed Guardian Test") +
+  labs(x= "1 = Low, 20 = High") +
   coord_cartesian(xlim = c(0,20))
 
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_RUSH, dataset$NASA_RUSH_OGF,
         main = "How hurried or rushed was the pace of the task?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -80,19 +97,24 @@ median(dataset$NASA_RUSH)
 median(dataset$NASA_RUSH_OGF)
 # How hard did you have to work to accomplish your level of performance?
 # Histogram
-hGramLOP <- ggplot(dataset, aes(x=dataset$NASA_PERFORMANCEDEMAND_OGF))
-hGramLOP + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How hard did you have to work to accomplish your level of performance?' of Our Guardian Feature") +
-  labs(x= "1 - Very Low, 20 - Very High") +
+hGramLOP <- ggplot(dataset, aes(x=dataset$NASA_PERFORMANCEDEMAND))
+hGramLOP + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How hard did you have to work to accomplish your level of performance?' of the Standard Guardian Feature") +
+  labs(x= "1 = Very Low, 20 = Very High") +
   coord_cartesian(xlim = c(0,20))
-
+hGramLOPDGF <- ggplot(dataset, aes(x=dataset$NASA_PERFORMANCEDEMAND_OGF))
+hGramLOPDGF + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for 'How hard did you have to work to accomplish your level of performance?' of the Developed Guardian Feature") +
+  labs(x= "1 = Very Low, 20 = Very High") +
+  coord_cartesian(xlim = c(0,20))
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_PERFORMANCEDEMAND, dataset$NASA_PERFORMANCEDEMAND_OGF,
         main = "How hard did you have to work to accomplish your level of performance?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -102,19 +124,24 @@ median(dataset$NASA_PERFORMANCEDEMAND)
 median(dataset$NASA_PERFORMANCEDEMAND_OGF)
 
 # How successful were you in accomplishing what you were asked to do?
+hGramLOS <- ggplot(dataset, aes(x=dataset$NASA_SUBJECTIVE_SUCCES))
+hGramLOS + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How successful were you in accomplishing what you were asked to do?' of the Standard Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
+  coord_cartesian(xlim = c(0,20))
 hGramLOS <- ggplot(dataset, aes(x=dataset$NASA_SUBJECTIVE_SUCCES_OGF))
 hGramLOS + geom_histogram(binwidth = 1, colour = "black", fill="red") +
-  ggtitle("Histogram for 'How successful were you in accomplishing what you were asked to do?' of Our Guardian Feature") +
-  labs(x= "1 - Low, 20 - High") +
+  ggtitle("Histogram for 'How successful were you in accomplishing what you were asked to do?' of the Developed Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
   coord_cartesian(xlim = c(0,20))
-
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_SUBJECTIVE_SUCCES, dataset$NASA_SUBJECTIVE_SUCCES_OGF,
         main = "How successful were you in accomplishing what you were asked to do?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -124,19 +151,24 @@ median(dataset$NASA_SUBJECTIVE_SUCCES)
 median(dataset$NASA_SUBJECTIVE_SUCCES_OGF)
 
 # How insecure, discouraged, irritated, stressed, and annoyed were you?
+hGramIDISA <- ggplot(dataset, aes(x=dataset$NASA_IDISA))
+hGramIDISA + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of Standard Guardian Feature") +
+  labs(x= "1 = Low, 20 = High") +
+  coord_cartesian(xlim = c(0,20))
 hGramIDISA <- ggplot(dataset, aes(x=dataset$NASA_IDISA_OGF))
 hGramIDISA + geom_histogram(binwidth = 1, colour = "black", fill="red") +
   ggtitle("Histogram for 'How insecure, discouraged, irritated, stressed and annoyed were you?' of Developed Guardian Feature") +
-  labs(x= "1 - Low, 20 - High") +
+  labs(x= "1 = Low, 20 = High") +
   coord_cartesian(xlim = c(0,20))
-
 # Boxplot
 par(mar = c(5, 4, 4, 2) + 0.1)
 boxplot(dataset$NASA_IDISA, dataset$NASA_IDISA_OGF,
         main = "How insecure, discouraged, irritated, stressed, and annoyed were you?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Low, 20 = High"),
         horizontal = FALSE,
-        col = "red",
+        col = c("steelblue2","red"),
         notch = FALSE,
         ylim = c(0, 20)
 )
@@ -144,6 +176,53 @@ mean(dataset$NASA_IDISA)
 mean(dataset$NASA_IDISA_OGF)
 median(dataset$NASA_IDISA)
 median(dataset$NASA_IDISA_OGF)
+
+
+hGramVRHOURS <- ggplot(dataset, aes(x=dataset$VRHOURS))
+hGramVRHOURS + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
+  ggtitle("Histogram for how many hours participants have used Virtual Reality before (SGF)") +
+  labs(x= "1 = <1 hour, 2 = 1-5 hours, 3 = 5-20 hours, 20-60 hours,  5 = >60 hours")
+hGramVRHOURS <- ggplot(dataset, aes(x=dataset$VRHOURS_OGF))
+hGramVRHOURS + geom_histogram(binwidth = 1, colour = "black", fill="red") +
+  ggtitle("Histogram for how many hours participants have used Virtual Reality before (DGF)") +
+  labs(x= "1 = <1 hour, 2 = 1-5 hours, 3 = 5-20 hours, 20-60 hours,  5 = >60 hours")
+
+#coord_cartesian(xlim = c(0,20))
+
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$FRUSTRATION_SCAPE, dataset$FRUSTRATION_SCAPE_OGF,
+        main = "How frustrating did you find the space?",
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Very frustrating, 7 = Not at all"),
+        horizontal = FALSE,
+        col = c("steelblue2","red"),
+        notch = FALSE,
+        ylim = c(1, 7)
+)
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$HM_USE, dataset$HM_USE_OGF,
+        main = "How much did you make use of the feature?",
+        names = c("Standard Guardian Feature", "Developed Guardian Feature"),
+        xlab = ("1 = Very much, 20 = Not at all"),
+        horizontal = FALSE,
+        col = c("steelblue2","red"),
+        notch = FALSE,
+        ylim = c(1, 7)
+)
+# Boxplot
+par(mar = c(5, 4, 4, 2) + 0.1)
+boxplot(dataset$ACTIVATION_TIME, dataset$ACTIVATION_TIME_OGF,
+        main = "Did the feature activate in good time?",
+        names = c("Standard Guardian Feature", "Develeoped Guardian Feature"),
+        horizontal = FALSE,
+        col = c("steelblue2","red"),
+        notch = FALSE,
+        ylim = c(1, 7),
+        xlab = ("1 = Too early, 20 = Too late")
+)
+
 library(moments)
 # Kurtosis & Skewness
 
@@ -240,43 +319,3 @@ t.test(dataset$NASA_IDISA, dataset$NASA_IDISA_OGF)
 # sample estimates:
 #   mean of x mean of y 
 # 7.2      12.2 
-
-hGramVRHOURS <- ggplot(dataset, aes(x=dataset$VRHOURS))
-hGramVRHOURS + geom_histogram(binwidth = 1, colour = "black", fill="steelblue2") +
-  ggtitle("Histogram for how many hours participants have used Virtual Reality before (SGF)") +
-  labs(x= "1 = <1 hour, 2 = 1-5 hours, 3 = 5-20 hours, 20-60 hours,  5 = >60 hours")
-  #coord_cartesian(xlim = c(0,20))
-
-# Boxplot
-par(mar = c(5, 4, 4, 2) + 0.1)
-boxplot(dataset$FRUSTRATION_SCAPE, dataset$FRUSTRATION_SCAPE_OGF,
-        main = "How frustrating did you find the space?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
-        horizontal = FALSE,
-        col = "red",
-        notch = FALSE,
-        ylim = c(0, 20),
-        xlab = "0 = Not very frustrating, 20 = Very frustrating"
-)
-# Boxplot
-par(mar = c(5, 4, 4, 2) + 0.1)
-boxplot(dataset$HM_USE, dataset$HM_USE_OGF,
-        main = "How much did you make use of the feature?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
-        horizontal = FALSE,
-        col = "red",
-        notch = FALSE,
-        ylim = c(0, 20),
-        xlab = "1 = Very much, 20 = Not very much")
-)
-# Boxplot
-par(mar = c(5, 4, 4, 2) + 0.1)
-boxplot(dataset$ACTIVATION_TIME, dataset$ACTIVATION_TIME_OGF,
-        main = "Did the feature activate in good time?",
-        names = c("Standard Guardian Feature", "Our Guardian Feature"),
-        horizontal = FALSE,
-        col = "red",
-        notch = FALSE,
-        ylim = c(0, 20),
-        xlab = "1 = Too early, 20 = Too late")
-)
